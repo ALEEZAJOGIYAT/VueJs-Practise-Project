@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Vue Practise App</title>
+</head>
+<body>
+    <h1>hello</h1>
+    <div id="heading">
+       <h4>Dynamic data rendering</h4>
+       <h6>About Book</h6>
+       <ol>
+        <li>{{title}}</li>
+        <li>{{education}}</li>
+        <li>{{age}}</li>
+       </ol>
+       <button v-on:click="add" >Increase Age</button>
+       <p>pass value in functions</p>
+       <button v-on:click="changeTitle('dark ages')">Change</button>
+       <br>
+       <br>
+
+       <div v-if="showBooks">
+           <p>conditional rendering </p>
+           <ol>
+            <li>{{title}}</li>
+            <li>{{education}}</li>
+            <li>{{age}}</li>
+           </ol>               
+       </div>
+       <button @click="toggleBtn">
+        <span v-if="!showBooks" >showBooks</span>
+        <span v-else >hideBooks</span>
+    </button>
+    <!-- v-show is basicaly for diaplying when statment is true -->
+    <div v-show="showBooks" >Currently showing books</div>
+
+    <p> outputting lists using v-for </p>
+    <div v-if="showBooks">
+        <ul>
+            <!-- the first one mesn book can be any name but after in wo name hoga jis name se array declare kra ha -->
+            <li v-for="book in books">
+                <p>{{book.title}}</p>
+                <p>{{book.author}}</p>
+
+            </li>
+        </ul>
+
+    </div>
+    <div>
+        <h6>Attribute binding by using v-bind  </h6>
+        <a v-bind:href="url" >Nice website</a>
+
+    </div>
+
+    </div> 
+    
+    <script src="app.js"></script>
+</body>
+</html>
+
